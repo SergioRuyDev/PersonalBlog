@@ -32,12 +32,12 @@ public class AuthService {
         User user = new User();
         user.setUserName(registerRequest.getUserName());
         user.setEmail(registerRequest.getEmail());
-        user.setPassword(encodePassoword(registerRequest.getPassword()));
+        user.setPassword(encodePassword(registerRequest.getPassword()));
 
         userRepository.save(user);
     }
 
-    private String encodePassoword(String password) {
+    private String encodePassword(String password) {
         return passwordEncoder.encode(password);
     }
 
