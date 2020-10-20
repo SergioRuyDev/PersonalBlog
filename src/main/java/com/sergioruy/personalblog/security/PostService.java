@@ -35,10 +35,10 @@ public class PostService {
 
     private PostDto mapFromPostToDto(Post post) {
         PostDto postDto = new PostDto();
-        postDto.setId(postDto.getId());
-        postDto.setTitle(postDto.getTitle());
-        postDto.setContent(postDto.getContent());
-        postDto.setUsername(postDto.getUsername());
+        postDto.setId(post.getId());
+        postDto.setTitle(post.getTitle());
+        postDto.setContent(post.getContent());
+        postDto.setUsername(post.getUserName());
         return postDto;
     }
 
