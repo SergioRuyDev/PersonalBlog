@@ -1,6 +1,7 @@
 package com.sergioruy.personalblog.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
@@ -11,12 +12,15 @@ public class User {
     private Long id;
 
     @Column
+    @NotNull
     private String userName;
 
     @Column
+    @NotNull
     private String password;
 
     @Column
+    @NotNull
     private String email;
 
     public Long getId() {
