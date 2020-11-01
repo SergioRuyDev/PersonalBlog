@@ -1,6 +1,6 @@
 package com.sergioruy.personalblog.security;
 
-import com.sergioruy.personalblog.exception.SpringBlogException;
+import com.sergioruy.personalblog.exception.PersonalBlogException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
@@ -25,7 +25,7 @@ public class JwtProvider {
             InputStream resourceAsStream = getClass().getResourceAsStream("/personalblog.jks");
             keyStore.load(resourceAsStream, "Julia917".toCharArray());
         } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
-            throw new SpringBlogException("Exception occured while loading keystore");
+            throw new PersonalBlogException("Exception occured while loading keystore");
         }
     }
 
@@ -41,7 +41,7 @@ public class JwtProvider {
         try {
             return (PrivateKey) keyStore.getKey("personalblog", "Julia917".toCharArray());
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
-            throw new SpringBlogException("Exception occured while loading keystore");
+            throw new PersonalBlogException("Exception occured while loading keystore");
         }
     }
 
@@ -54,7 +54,7 @@ public class JwtProvider {
         try {
             return keyStore.getCertificate("personalblog").getPublicKey();
         } catch (KeyStoreException e) {
-            throw new SpringBlogException("Exception occured while loading keystore");
+            throw new PersonalBlogException("Exception occured while retrieving public key from keystore");
         }
     }
 
